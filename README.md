@@ -3,7 +3,6 @@
  
 # Text RPG
  
- 
   Authors: [Anna Jimerson](https://github.com/pinacoladakitten), 
 [Madelyn Ritchie](https://github.com/madiritc0), 
 [Alex Nguyen](https://github.com/AlexPNguyen414), 
@@ -14,12 +13,10 @@
 Our Text RPG will mimmic original text base style Role Playing Games.  
 Our choice was based on having fun while learning skills introduced in this course.  
 We will be writing our Text RPG in C++,and use Github to collaborate our work as a team.  
->	* C++ 
-
-Input will involve keyboard entries from player.  Output will move the Role Playing Game in the direction of the player's choices. This output will be shown in console as a progressing text story. There will be random enemy encounters, loot to be won, and choices made by the player will change the outcome of their success.  
+>	* C++  
+Input will involve keyboard entries from player. Output will move the Role Playing Game in the direction of the player's choices. This output will be shown in console as a progressing text story. There will be random enemy encounters, loot to be won, and choices made by the player will change the outcome of their success.  
    
 
- > You also need to set up an empty project board by choosing the  “Automated kanban with review” option on Github. You should also have a Backlog and In testing columns added.
  > ## Phase II
  > In addition to completing the "Class Diagram" section below, you will need to:
  > * Create an "Epic" (note) for each feature and each design pattern and assign them to the appropriate team member. Place these in the `Backlog` column
