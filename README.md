@@ -1,32 +1,20 @@
 
 
  
-# \Text RPG
+# Text RPG
  
  
-  Authors: [Anna Jimerson](https://github.com/pinacoladakitten)
-[Madelyn Ritchie](https://github.com/madiritc0)
-[Alex Nguyen](https://github.com/AlexPNguyen414)
+  Authors: [Anna Jimerson](https://github.com/pinacoladakitten), 
+[Madelyn Ritchie](https://github.com/madiritc0), 
+[Alex Nguyen](https://github.com/AlexPNguyen414), 
 [Andrew Whitfield](https://github.com/aewhitfield90) 
  
-  The project has 4 phases, each one with specific requirements. A list of proposed project ideas that have been successful in previous quarters is listed in the project specifications document on Canvas. You can select an idea from the list, start thinking about the features you will implement, what design patterns can help you implement them, and why. If you want to propose your own original idea, you will have to contact an instructor to discuss the project and obtain written permission before you submit your project proposal (Phase 1). Your project needs to implement at least one design pattern iteratively, which you will have to justify in later phases.The project work should be divided almost equally among team members. You can of course help each other, but it needs to be clear who will be responsible for which features. Additionally, you are expected to follow Scrum patterns, specifically the use of a Scrum (Project) board, Sprints, and Scrum meetings. While Daily Scrums are not required we highly encourage you to practice them.
-
  
- > ## Expectations
- > * Incorporate **at least one** design pattern
- >   * It is recommended that you include a design pattern that we will teach this session (Composite, Strategy, or Visitor)
- > * Your project should be implemented in C++. If you wish to choose anoher programming language (e.g. Java, Python), please discuss with your lab TA to obtain permission.
- > * You can incorporate additional technologies/tools but they must be approved (in writing) by the instructor or the TA.
- > * Each member of the group **must** be committing code regularly and make sure their code is correctly attributed to them. We will be checking attributions to determine if there was equal contribution to the project.
- > * Each member of the group must actively participate in the Github Project board and reviewing commited code.
-> * All project phases are to be submitted to this GitHub repository. You should modify this README file to reflect the different phases of the project. In addition, you should regularly hold sprint meetings with your group. You will need to hold two scrum/check-in meetings with your lab TA/reader in two different weeks in addition to the final demo.
-
-
 ## Project Description
 Our Text RPG will mimmic original text base style Role Playing Games.
 Our choice was based on having fun while learning skills introduced in this course.
 We will be writing our Text RPG in C++,and use Github to collaborat our work as a team.
-	- C++ 
+	* C++ 
 Input will involve keyboard entries from player. Output will move the Role PLaying Game in the direction of the player's choices. This output will be shown in console as a progressing text story. There will be random enemy encounters, loot to be won, and choices made by the player will change the outcome of their success. 
    
 > Your project description should summarize the project you are proposing. Be sure to include:
