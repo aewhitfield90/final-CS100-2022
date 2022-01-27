@@ -11,9 +11,9 @@
  
  
 ## Project Description
-Our Text RPG will mimmic original text base style Role Playing Games.
-Our choice was based on having fun while learning skills introduced in this course.
-We will be writing our Text RPG in C++,and use Github to collaborat our work as a team.
+Our Text RPG will mimmic original text base style Role Playing Games. 
+Our choice was based on having fun while learning skills introduced in this course. 
+We will be writing our Text RPG in C++,and use Github to collaborate our work as a team. 
 >	* C++ 
 
 Input will involve keyboard entries from player. Output will move the Role PLaying Game in the direction of the player's choices. This output will be shown in console as a progressing text story. There will be random enemy encounters, loot to be won, and choices made by the player will change the outcome of their success. 
