@@ -11,21 +11,14 @@
  
  
 ## Project Description
-Our Text RPG will mimmic original text base style Role Playing Games. 
-Our choice was based on having fun while learning skills introduced in this course. 
-We will be writing our Text RPG in C++,and use Github to collaborate our work as a team. 
+Our Text RPG will mimmic original text base style Role Playing Games.  
+Our choice was based on having fun while learning skills introduced in this course.  
+We will be writing our Text RPG in C++,and use Github to collaborate our work as a team.  
 >	* C++ 
 
-Input will involve keyboard entries from player. Output will move the Role PLaying Game in the direction of the player's choices. This output will be shown in console as a progressing text story. There will be random enemy encounters, loot to be won, and choices made by the player will change the outcome of their success. 
+Input will involve keyboard entries from player.  Output will move the Role Playing Game in the direction of the player's choices. This output will be shown in console as a progressing text story. There will be random enemy encounters, loot to be won, and choices made by the player will change the outcome of their success.  
    
-> Your project description should summarize the project you are proposing. Be sure to include:
- > * Why is it important or interesting to you?
- > * What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
- >   * [toolname](link) - Short description
- > * What will be the input/output of your project? What are the features that the project provides?
- > 
- > This description should be in enough detail that the TA/instructor can determine the complexity of the project and if it is sufficient for the team members to complete in the time allotted. 
- > 
+
  > You also need to set up an empty project board by choosing the  “Automated kanban with review” option on Github. You should also have a Backlog and In testing columns added.
  > ## Phase II
  > In addition to completing the "Class Diagram" section below, you will need to:
