@@ -32,6 +32,9 @@ Input will involve keyboard entries from the player. Output will move the Role P
 
 ## Class Diagram
 ![UML](https://github.com/cs100/final-project-ajime038-awhit078-mritc003-nnguy414/blob/master/UML%20class.png)
+Main class starts game and runs text menu system. Runs text based story.
+Creature class is parent class to Player and Monsters.
+Item class handles loot random generation.
  > Include a **class diagram(s)** for your project and a **description** of the diagram(s). Your class diagram(s) should include all the main classes you plan for the project. This should be in sufficient detail that another group could pick up the project this point and successfully complete it. Use proper UML notation (as discussed in the course slides).
  
  > ## Phase III
