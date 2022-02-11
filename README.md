@@ -31,6 +31,7 @@ Input will involve keyboard entries from the player. Output will move the Role P
  >     * How work will be divided between the team members
 
 ## Class Diagram
+UML class (1).pdf
  > Include a **class diagram(s)** for your project and a **description** of the diagram(s). Your class diagram(s) should include all the main classes you plan for the project. This should be in sufficient detail that another group could pick up the project this point and successfully complete it. Use proper UML notation (as discussed in the course slides).
  
  > ## Phase III
