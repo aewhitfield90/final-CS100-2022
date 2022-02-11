@@ -31,7 +31,7 @@ Input will involve keyboard entries from the player. Output will move the Role P
  >     * How work will be divided between the team members
 
 ## Class Diagram
-!(https://github.com/cs100/final-project-ajime038-awhit078-mritc003-nnguy414/blob/master/UML%20class.png)
+![UML](https://github.com/cs100/final-project-ajime038-awhit078-mritc003-nnguy414/blob/master/UML%20class.png)
  > Include a **class diagram(s)** for your project and a **description** of the diagram(s). Your class diagram(s) should include all the main classes you plan for the project. This should be in sufficient detail that another group could pick up the project this point and successfully complete it. Use proper UML notation (as discussed in the course slides).
  
  > ## Phase III
