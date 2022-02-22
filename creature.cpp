@@ -1,11 +1,12 @@
 
 #include <string>
+using namespace std;
 
 class Creature {
 private:
-	string name = "";
-	int healthPoints = 0;
-	int attackPoints = 0;
+	string name;
+	int healthPoints;
+	int attackPoints;
 public:
 	void setName(string n) {
 		name = n;
@@ -32,42 +33,56 @@ private:
 	int experiencePoints = 0;
 	//Item *inventoryArray = new Item[5]; //item array of item objects size 5
 public:
-	void makePlayer(string n) {
-		name = n;
-		healthPoints = 100;
-		attackPoints = 5;
+	Player(string n) {//first time character creation stats
+		setName(n);
+		setHP(100);
+		setAP(5);
 	}
 	int getXP() {
 		return experiencePoints;
+	}
+	void getPlayerStats() {
+		cout << "Character " << getName() << " stats:" << endl;
+		cout << "Health Points: " << getHP() << endl;
+		cout << "Attack Points: " << getAP() << endl;
+		cout << "Experience Points: " << getXP() << endl << endl;
 	}
 };
 
 class Monster : public Creature {
 private:
-	item loot = new item(rand());
+	int loot = rand() % 100+1; //have to wait for loot class to be made
+	int getLoot() {
+		return loot; //place holder till loot class is finished
+	}
 };
 
 class Slime : public Monster {
 private:
-	name = "Slime";
-	Monster.health
 public:
-	setName("Slime");
-	
-
-
+	Slime(){
+		setName("Slime");
+		setHP(25);
+		setAP(3);
+	}
 };
 
 class Rat : public Monster {
 private:
-	item loot = new item(rand());
-
-
+public:
+	Rat() {
+		setName("Rat");
+		setHP(15);
+		setAP(2);
+	}
 };
 
 class Skeleton : public Monster {
 private:
-	item loot = new item(rand());
-
-
+public:
+	Skeleton() {
+		setName("Skeleton");
+		setHP(40);
+		setAP(5);
+	}
 };
