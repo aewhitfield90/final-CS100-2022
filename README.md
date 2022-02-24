@@ -52,7 +52,7 @@ subclass of Action has it's own vector just so things are separated when selecti
 
 **The BaseAction class** is the base/interface for all possible Actions in the game. All actions from enemies or the player derive from this class. Each action also has
 an '*onUseText'* variable which displays what happens upon being used. Attack classes are basic attacks which deal physical damage, Items have ItemCounts which give limtited
-uses, and the SpecialMagic class handles all magic or special attacks.
+uses, and the SpecialMagic class handles all magic or special attacks..
  
  > Include a **class diagram(s)** for your project and a **description** of the diagram(s). Your class diagram(s) should include all the main classes you plan for the project. This should be in sufficient detail that another group could pick up the project this point and successfully complete it. Use proper UML notation (as discussed in the course slides).
  
