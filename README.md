@@ -54,7 +54,6 @@ subclass of Action has it's own vector just so things are separated when selecti
 an '*onUseText'* variable which displays what happens upon being used. Attack classes are basic attacks which deal physical damage, Items have ItemCounts which give limtited
 uses, and the SpecialMagic class handles all magic or special attacks.
  
-Item class handles loot random generation.
  > Include a **class diagram(s)** for your project and a **description** of the diagram(s). Your class diagram(s) should include all the main classes you plan for the project. This should be in sufficient detail that another group could pick up the project this point and successfully complete it. Use proper UML notation (as discussed in the course slides).
  
  > ## Phase III
