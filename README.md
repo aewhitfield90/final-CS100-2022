@@ -30,10 +30,30 @@ Input will involve keyboard entries from the player. Output will move the Role P
  >     * The tasks you are planning for the first sprint
  >     * How work will be divided between the team members
 
-## Class Diagram
-![UML](https://github.com/cs100/final-project-ajime038-awhit078-mritc003-nnguy414/blob/master/UML%20class.png)
-Main class starts game and runs text menu system. Runs text based story.
-Creature class is parent class to Player and Monsters.
+## Class Diagram (Updated)
+![UML](https://github.com/cs100/final-project-ajime038-awhit078-mritc003-nnguy414/blob/master/FinalGameProjectUML.png)
+**The GameSystem class** simply handles which scene we are currently in which everything in the game can read from. This class also stores the main TextLog
+class which everything else in the game can write to as events occur.
+
+**The TextLog class** is what writes everything to the console as it is a text-based RPG. This will handle anything related to writing.
+
+**The SceneHandler class** is the base class/interface for all of the scene types, e.g. Story Scenes or Combat Scenes. These classes all handle the events in
+the game which take place and their specific dialogue will be read from a file which contains text for the scene to write to the TextLog. Scenes are then linked
+through a pointer to the next scene. The **StoryHandler class** is mainly made for handling normal story events, which usually only involves printing text. While 
+the **CombatHandler class** should have a default implementation of the *'combat loop'* since it would basically be the same for all combat scenarios, the only
+thing actually changing in them is the *'characterTurnList'* which will go through each character's turn.
+
+**The BaseCharacter class** is the base/interface for ALL characters: enemies, the player, npc's, etc; This holds everything that a character should have and 
+each class inheriting from it has their own method of "CharacterTurn", so for instance the Player would select commands from what they have, while enemies would
+randomly select an attack. All characters have an Inventory to work with too.
+
+**The Inventory class** holds all possible Actions a character can do base on what they have, whether it's Attack, Magic, or using an Item, they're all actions that can be done. Each 
+subclass of Action has it's own vector just so things are separated when selecting things.
+
+**The BaseAction class** is the base/interface for all possible Actions in the game. All actions from enemies or the player derive from this class. Each action also has
+an '*onUseText'* variable which displays what happens upon being used. Attack classes are basic attacks which deal physical damage, Items have ItemCounts which give limtited
+uses, and the SpecialMagic class handles all magic or special attacks.
+ 
 Item class handles loot random generation.
  > Include a **class diagram(s)** for your project and a **description** of the diagram(s). Your class diagram(s) should include all the main classes you plan for the project. This should be in sufficient detail that another group could pick up the project this point and successfully complete it. Use proper UML notation (as discussed in the course slides).
  
