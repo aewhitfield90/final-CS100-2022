@@ -53,12 +53,6 @@ subclass of Action has it's own vector just so things are separated when selecti
 **The BaseAction class** is the base/interface for all possible Actions in the game. All actions from enemies or the player derive from this class. Each action also has
 an '*onUseText'* variable which displays what happens upon being used. Attack classes are basic attacks which deal physical damage, Items have ItemCounts which give limtited
 uses, and the SpecialMagic class handles all magic or special attacks..
-
-For our project we'ved decided to go with the Strategy Pattern because in our project we've ended up having multiple contexts which each needed
-their own strategy. For instance, the Actions that each character can do all need their own strategy since they all do different things. For,
-example Items have an Item Count, Special Attacks use the character's mana, and each specific Action basically does their own thing. Then each
-character can hold these actions through their Inventory pointers. The Strategy Pattern was basically necessary to make each classes easily extendable,
-and to properly follow solid principles, and we're sure that this structure will make development on actual content a lot easier and efficient.
  
  > Include a **class diagram(s)** for your project and a **description** of the diagram(s). Your class diagram(s) should include all the main classes you plan for the project. This should be in sufficient detail that another group could pick up the project this point and successfully complete it. Use proper UML notation (as discussed in the course slides).
  
