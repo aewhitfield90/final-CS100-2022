@@ -5,5 +5,5 @@ project(TESTING)
 SET(CMAKE_CXX_STANDARD 11)
 
 ADD_EXECUTABLE(test
-    main.cpp
+    class_test.cpp
 )
