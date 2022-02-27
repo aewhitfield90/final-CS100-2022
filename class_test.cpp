@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "creature.cpp"
+#include "creature.h"
 using namespace std;
 
 int main() {//tester main for classes
