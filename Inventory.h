@@ -1,5 +1,7 @@
-#pragma once
-#include "Actions\Action.h"
+#ifndef INVENTORY_H
+#define INVENTORY_H
+
+#include "Actions/Action.h"
 
 using namespace std;
 
@@ -11,7 +13,7 @@ private:
 	vector<SpecialMagic*> magicSpecialList;	// Or if selected magic, then look in magic
 
 	// Get Owning Character
-	Creature* owner;
+	class Creature* owner;
 
 public:
 	// Get variables
@@ -25,4 +27,19 @@ public:
 	void setItemList(vector<Item*>& inList)				{ this->itemList = inList; }
 	void setSpecialMagic(vector<SpecialMagic*>& inList)	{ this->magicSpecialList = inList; }
 	void setCreatureOwner(Creature* owningCreature)		{ this->owner = owningCreature; }
+
+	// Destructor
+	~Inventory() {	// Clear inventory
+		for (Action* i : actionList) {
+			delete i;
+		}
+		for (Item* i : itemList) {
+			delete i;
+		}
+		for (SpecialMagic* i : magicSpecialList) {
+			delete i;
+		}
+	}
 };
+
+#endif /* INVENTORY_H */

@@ -1,7 +1,6 @@
-#pragma once
+#ifndef ACTION_H
+#define ACTION_H
 #include <string>
-#include "..\Inventory.h"
-#include "..\creature.h"
 
 using namespace std;
 
@@ -9,26 +8,21 @@ using namespace std;
 class Action {
 private:
 	// Create Vars
-	int power = 0;				// The Action's general power
-	string name = "Action";		// Action's name
-
-	Inventory* owningInventory;	// Action's owning inventory
+	int power = 0;						// The Action's general power
+    string name = "Action";				// Action's name
+	class Inventory* owningInventory;	// Action's owning inventory
 
 public:
-	virtual void ExecuteAction() = 0;
-
 	// Get Functions
-	string getName() { return name; }
+	string getName()				{ return name; }
 	Inventory* getOwningInventory() { return owningInventory; }
 
 	// Set Functions
-	void setOwningInventory(Inventory* inventory) { 
-		this->owningInventory = inventory;
-	}
+	void setOwningInventory(Inventory* inventory) { this->owningInventory = inventory; }
+	void setName(string inName) { this->name = inName; }
 
-	void setName(string inName) {
-		this->name = inName;
-	}
+	// Execute Action
+	virtual void ExecuteAction() = 0;
 };
 
 // Item Baseclass
@@ -56,20 +50,7 @@ public:
 		setName("Attack");
 	}
 
-	virtual void ExecuteAction() {
-		// Deal a basic attack to owning creature's target
-		Creature* ownerCreature = getOwningInventory()->getCreatureOwner();
-
-		// Get Creature Attack Damage and Target
-		int damage = ownerCreature->getAttack();
-		ownerCreature->DealDamageToTarget(damage);
-
-		// Print that we dealt damage
-		cout << this->getName() << " attacks and deals " << damage << " to " << ownerCreature->getTarget()->getName();
-
-		// Sleep for 1 second
-		std::this_thread::sleep_for(std::chrono::seconds(1));
-	}
+	virtual void ExecuteAction();
 };
 
 class SpecialMagic : public Action {
@@ -85,3 +66,5 @@ public:
 		
 	}
 };
+
+#endif /* ACTION_H */

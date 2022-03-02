@@ -1,10 +1,12 @@
+#ifndef CREATURE_H
+#define CREATURE_H
+
 #include <string>
 #include <iostream>
 #include <chrono>
 #include <thread>
 #include <vector>
 #include "Inventory.h"
-#include "Actions\Action.h"
 
 using namespace std;
 
@@ -17,14 +19,10 @@ private:
 	Creature* target;
 	Inventory* inventory;
 
-
 public:
 
-	Creature() {
-		// Creature Inventory Creation
-		inventory = new Inventory;
-		inventory->getActionList().push_back(new Attack);
-	}
+	// Constructor
+	Creature();
 
 	// Get Functions
 	string getName() { return name; }
@@ -39,34 +37,25 @@ public:
 	Creature* getTarget() { return target; }
 
 	// Set Functions
-	void setName(string n) { 
-		name = n; 
-	}
+	void setName(string n) { name = n; }
 
-	void setHealth(int i) { 
-		healthPoints = i; 
-	}
+	void setHealth(int i) { healthPoints = i; }
 
-	void setAttack(int i) { 
-		attackPoints = i; }
+	void setAttack(int i) { attackPoints = i; }
 
-	void setTarget(Creature* in_target) { 
-		this->target = in_target; 
-	}
+	void setTarget(Creature* in_target) { this->target = in_target; }
 
-	void setInventory(Inventory* inInv) { 
-		this->inventory = inInv; 
-	}
+	void setInventory(Inventory* inInv) { this->inventory = inInv; }
 
 	// Combat Functions
-
 	// Deal damage to Creature's target
-	void DealDamageToTarget(int damageAmt) {
-		target->setHealth(this->getHealth() - damageAmt);
-	}
+	void DealDamageToTarget(int damageAmt);
 
 	// Creature's turn to do things...
 	virtual void CreatureTurn() = 0;
+
+	// Destructor
+	virtual ~Creature();
 
 };
 
@@ -76,46 +65,17 @@ class Player : public Creature {
 private:
 	int experiencePoints = 0;
 	//Item *inventoryArray = new Item[5]; //item array of item objects size 5
+
 public:
-	Player(string n) {//first time character creation stats
-		setName(n);
-		setHealth(100);
-		setAttack(5);
-	}
-	int getXP() {
-		return experiencePoints;
-	}
-	void getPlayerStats() {
-		cout << "Character " << getName() << " stats:" << endl;
-		cout << "Health Points: " << getHealth() << endl;
-		cout << "Attack Points: " << getAttack() << endl;
-		cout << "Experience Points: " << getXP() << endl << endl;
-	}
+	//Constructor
+	Player(string n, int health, int attack); //first time character creation stats
 
-	// Player Turn
-	virtual void CreatureTurn() {
-		// Init get command var
-		int command;
+	int getXP() {return experiencePoints;}
 
-		// Ask what player will do
-		cout << "What will you do? Type # next to command..." << endl;
+	void getPlayerStats();
 
-		// Print Action List
-		vector<Action*> actionList = getInventory()->getActionList();
-
-		for (int i = 0; i < actionList.size(); i++)
-		{
-			cout << "\t" << "[" << i << "] " << actionList[i]->getName();
-		}
-		cout << endl;
-
-		// Get Player Input
-		cin >> command;
-
-		// Execute Player Action
-		if(actionList[command])
-			actionList[command]->ExecuteAction();
-	}
+	// Override Turn function for Player
+	virtual void CreatureTurn();
 };
 
 
@@ -125,15 +85,10 @@ private:
 	int loot = rand() % 100 + 1; //have to wait for loot class to be made
 
 public:
-	int getLoot() {
-		return loot; //place holder till loot class is finished
-	}
+	int getLoot() {return loot; } //place holder till loot class is finished
 
-	virtual void CreatureTurn() {
-		// Eventually use rand() for doing a random action
-		int i = 0;
-		getInventory()->getActionList()[i]->ExecuteAction();
-	}
+	// Override Turn function for Monsters
+	virtual void CreatureTurn();
 };
 
 
@@ -167,3 +122,5 @@ public:
 		setAttack(5);
 	}
 };
+
+#endif /* CREATURE_H */
