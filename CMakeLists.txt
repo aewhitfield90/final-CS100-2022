@@ -10,4 +10,6 @@ ADD_EXECUTABLE(test
     creature.cpp)
 
 ADD_EXECUTABLE(game
-    main.cpp)
+    main.cpp
+    Actions/Action.cpp
+    creature.cpp)

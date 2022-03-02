@@ -7,11 +7,12 @@ Creature::Creature() {
 	inventory->getActionList().push_back(new Attack);
 }
 
-
+// Deal Damage function for all creatures
 void Creature::DealDamageToTarget(int damageAmt) {
 	target->setHealth(this->getHealth() - damageAmt);
 }
 
+// Creature baseclass destructor
 Creature::~Creature() {
 	delete inventory;
 }

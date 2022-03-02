@@ -96,8 +96,8 @@ public:
 class Slime : public Monster {
 private:
 public:
-	Slime() {
-		setName("Slime");
+	Slime(string name = "Slime") {
+		setName(name);
 		setHealth(25);
 		setAttack(3);
 	}
@@ -106,8 +106,8 @@ public:
 class Rat : public Monster {
 private:
 public:
-	Rat() {
-		setName("Rat");
+	Rat(string name = "Rat") {
+		setName(name);
 		setHealth(15);
 		setAttack(2);
 	}
@@ -116,8 +116,8 @@ public:
 class Skeleton : public Monster {
 private:
 public:
-	Skeleton() {
-		setName("Skeleton");
+	Skeleton(string name = "Skeleton") {
+		setName(name);
 		setHealth(40);
 		setAttack(5);
 	}

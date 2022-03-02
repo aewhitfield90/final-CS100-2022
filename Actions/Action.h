@@ -25,20 +25,26 @@ public:
 	virtual void ExecuteAction() = 0;
 };
 
+
 // Item Baseclass
 class Item : public Action {
 private:
+	// Item count all items have
 	int itemCount = 1;
 	
 public:
+	// Constructor
 	Item() {
 		setName("Item");
 	}
 
+	// Item baseclass will always subtract item count when used
+	// Be sure to also call this for all Items --> Item::ExecuteAction()
 	virtual void ExecuteAction() {
 		itemCount -= 1;
 	}
 };
+
 
 // Attack Action Subclass
 class Attack : public Action {
@@ -46,25 +52,29 @@ private:
 
 
 public:
+	// Constructor
 	Attack() { 
 		setName("Attack");
 	}
 
+	// Execution Override (in .cpp)
 	virtual void ExecuteAction();
 };
+
 
 class SpecialMagic : public Action {
 private:
 
 
 public:
+
+	// Constructor
 	SpecialMagic() {
 		setName("Special");
 	}
 
-	virtual void ExecuteAction() {
-		
-	}
+	// Execution Override (empty...)
+	virtual void ExecuteAction() {};
 };
 
 #endif /* ACTION_H */
