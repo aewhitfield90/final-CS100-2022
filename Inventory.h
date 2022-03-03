@@ -17,10 +17,10 @@ private:
 
 public:
 	// Get variables
-	vector<Action*> getActionList()			{ return actionList; }
-	vector<Item*> getItemList()				{ return itemList; }
-	vector<SpecialMagic*> getSpecialMagic() { return magicSpecialList; }
-	Creature* getCreatureOwner()			{ return owner; }
+	vector<Action*>& getActionList()			{ return actionList; }
+	vector<Item*>& getItemList()				{ return itemList; }
+	vector<SpecialMagic*>& getSpecialMagic()	{ return magicSpecialList; }
+	Creature* getCreatureOwner()				{ return owner; }
 
 	// Set variables
 	void setActionList(vector<Action*>& inList)			{ this->actionList = inList; }

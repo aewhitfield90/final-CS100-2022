@@ -8,21 +8,34 @@ using namespace std;
 class Action {
 private:
 	// Create Vars
-	int power = 0;						// The Action's general power
+	float power = 0.f;					// The Action's general power
     string name = "Action";				// Action's name
 	class Inventory* owningInventory;	// Action's owning inventory
+	class Creature* ownerCreature;		// Action's owning creature
 
 public:
+	Action(Inventory*);
+
 	// Get Functions
 	string getName()				{ return name; }
 	Inventory* getOwningInventory() { return owningInventory; }
+	Creature* getOwnerCreature()	{ return ownerCreature; }
+	float getPower()				{ return power; }
 
 	// Set Functions
 	void setOwningInventory(Inventory* inventory) { this->owningInventory = inventory; }
 	void setName(string inName) { this->name = inName; }
+	void setPower(float inPower){ this->power = inPower; }
 
 	// Execute Action
 	virtual void ExecuteAction() = 0;
+
+
+	// Modify Health function for the owning creature (Used for healing or taking damage to self)
+	void ModifyOwnerHealth(int damageAmt);
+
+	// Deal damage to owner creature's current target
+	int DealDamageToTarget();
 };
 
 
@@ -34,7 +47,7 @@ private:
 	
 public:
 	// Constructor
-	Item() {
+	Item(Inventory* owningInv) : Action(owningInv) {
 		setName("Item");
 	}
 
@@ -46,22 +59,7 @@ public:
 };
 
 
-// Attack Action Subclass
-class Attack : public Action {
-private:
-
-
-public:
-	// Constructor
-	Attack() { 
-		setName("Attack");
-	}
-
-	// Execution Override (in .cpp)
-	virtual void ExecuteAction();
-};
-
-
+// Special Baseclass
 class SpecialMagic : public Action {
 private:
 
@@ -69,12 +67,60 @@ private:
 public:
 
 	// Constructor
-	SpecialMagic() {
+	SpecialMagic(Inventory* owningInv) : Action(owningInv) {
 		setName("Special");
 	}
 
 	// Execution Override (empty...)
 	virtual void ExecuteAction() {};
+};
+
+
+// ------------Specific Action Subclasses (Add new Actions below!)------------
+class Attack : public Action {
+private:
+public:
+	// Constructor
+	Attack(Inventory* owningInv) : Action(owningInv) {
+		setName("Attack");
+		setPower(1);
+	}
+
+	// Execution Override (in .cpp)
+	virtual void ExecuteAction();
+};
+
+
+// Mega Flare Attack
+class MegaFlare : public Action {
+private:
+public:
+	// Constructor
+	MegaFlare(Inventory* owningInv) : Action(owningInv) {
+		setName("Mega Flare");
+		setPower(999);
+	}
+
+	// Execution Override (in .cpp)
+	virtual void ExecuteAction();
+};
+
+
+//------------Enemy Specific Actions------------
+// Slime Pounce Action Subclass
+class SlimePounce : public Action {
+private:
+
+
+public:
+	// Constructor
+	SlimePounce(Inventory* owningInv) : Action(owningInv) {
+		setName("SlimePounce");
+		setPower(0.5);
+	}
+
+	// Execution Override (in .cpp)
+	virtual void ExecuteAction();
 };
 
 #endif /* ACTION_H */

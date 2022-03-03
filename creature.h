@@ -22,7 +22,14 @@ private:
 public:
 
 	// Constructor
-	Creature();
+	Creature() {
+		// Creature Inventory Creation
+		inventory = new Inventory;
+		inventory->setCreatureOwner(this);
+
+		// All creatures can attack
+		inventory->getActionList().push_back(new Attack(inventory));
+	}
 
 	// Get Functions
 	string getName() { return name; }
@@ -48,8 +55,11 @@ public:
 	void setInventory(Inventory* inInv) { this->inventory = inInv; }
 
 	// Combat Functions
-	// Deal damage to Creature's target
-	void DealDamageToTarget(int damageAmt);
+	// Take damage to Self (Use this whenever affecting health)
+	void TakeDamage(int damageAmt);
+
+	// When the creature dies
+	virtual void OnCreatureDeath() = 0;
 
 	// Creature's turn to do things...
 	virtual void CreatureTurn() = 0;
@@ -68,11 +78,21 @@ private:
 
 public:
 	//Constructor
-	Player(string n, int health, int attack); //first time character creation stats
+	Player(string n, int health, int attack) {	//first time character creation stats
+		setName(n);
+		setHealth(health);
+		setAttack(attack);
+
+		// Add any unique actions
+		getInventory()->getActionList().push_back(new MegaFlare(getInventory()));
+	}
 
 	int getXP() {return experiencePoints;}
 
 	void getPlayerStats();
+
+	// When the Player dies
+	virtual void OnCreatureDeath();
 
 	// Override Turn function for Player
 	virtual void CreatureTurn();
@@ -82,10 +102,13 @@ public:
 /*-------- Enemy Base Character Subclass --------*/
 class Monster : public Creature {
 private:
-	int loot = rand() % 100 + 1; //have to wait for loot class to be made
+	int loot = rand() % 100 + 1;		// have to wait for loot class to be made
 
 public:
 	int getLoot() {return loot; } //place holder till loot class is finished
+
+	// When any Monster dies
+	virtual void OnCreatureDeath();
 
 	// Override Turn function for Monsters
 	virtual void CreatureTurn();
@@ -96,10 +119,13 @@ public:
 class Slime : public Monster {
 private:
 public:
-	Slime(string name = "Slime") {
+	Slime(string name="Slime") {
 		setName(name);
-		setHealth(25);
+		setHealth(20);
 		setAttack(3);
+
+		// Add unique actions
+		getInventory()->getActionList().push_back(new SlimePounce(getInventory()));
 	}
 };
 

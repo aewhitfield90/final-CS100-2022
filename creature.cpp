@@ -1,15 +1,16 @@
 #include "creature.h"
 
 /*-------- Creature Baseclass --------*/
-Creature::Creature() {
-	// Creature Inventory Creation
-	inventory = new Inventory;
-	inventory->getActionList().push_back(new Attack);
-}
 
-// Deal Damage function for all creatures
-void Creature::DealDamageToTarget(int damageAmt) {
-	target->setHealth(this->getHealth() - damageAmt);
+// Taking damage for creatures
+void Creature::TakeDamage(int damageAmt) {
+	// Take damage
+	this->setHealth(this->getHealth() - damageAmt);
+
+	// Execute Creature's death function if health less than or equal 0
+	if (getHealth() <= 0) {
+		OnCreatureDeath();
+	}
 }
 
 // Creature baseclass destructor
@@ -19,11 +20,6 @@ Creature::~Creature() {
 
 
 /*-------- Player Character Subclass --------*/
-Player::Player(string n, int health, int attack) {
-	setName(n);
-	setHealth(health);
-	setAttack(attack);
-}
 
 // Player Turn
 void Player::CreatureTurn() {
@@ -44,11 +40,14 @@ void Player::CreatureTurn() {
 
 	// Get Player Input
 	cin >> command;
+	cout << endl;
 
 	// Execute Player Action
-	if (actionList[command])
-		actionList[command]->ExecuteAction();
+	if(command < actionList.size())
+		if (actionList[command])
+			actionList[command]->ExecuteAction();
 }
+
 
 void Player::getPlayerStats() {
 	cout << "Character " << getName() << " stats:" << endl;
@@ -58,11 +57,27 @@ void Player::getPlayerStats() {
 }
 
 
+void Player::OnCreatureDeath()
+{
+	cout << endl;
+	cout << "~~~YOU DIED~~~" << endl;
+
+	// Do more code with ending the game...
+}
+
+
 
 /*-------- Enemy Base Character Subclass --------*/
 
+void Monster::OnCreatureDeath()
+{
+	// Do something on creature death...
+}
+
 void Monster::CreatureTurn() {
-	// Eventually use rand() for doing a random action
-	int i = 0;
-	getInventory()->getActionList()[i]->ExecuteAction();
+	// Use rand() for doing a random action on Monster's turn, in range of their action list
+	int commandSelect = rand() % getInventory()->getActionList().size();
+
+	// Execute this action
+	getInventory()->getActionList()[commandSelect]->ExecuteAction();
 }
