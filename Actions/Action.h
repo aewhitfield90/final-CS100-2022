@@ -105,6 +105,20 @@ public:
 	virtual void ExecuteAction();
 };
 
+// New Slash Attack
+class NewSlashAttack : public Action {
+private:
+public:
+	// Constructor
+	NewSlashAttack(Inventory* owningInv) : Action(owningInv) {
+		setName("Slash Attack");
+		setPower(2);
+	}
+
+	// Execution Override (in .cpp)
+	virtual void ExecuteAction();
+};
+
 
 //------------Enemy Specific Actions------------
 // Slime Pounce Action Subclass

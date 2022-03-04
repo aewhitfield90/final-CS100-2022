@@ -85,6 +85,7 @@ public:
 
 		// Add any unique actions
 		getInventory()->getActionList().push_back(new MegaFlare(getInventory()));
+		getInventory()->getActionList().push_back(new NewSlashAttack(getInventory()));
 	}
 
 	int getXP() {return experiencePoints;}
@@ -126,6 +127,7 @@ public:
 
 		// Add unique actions
 		getInventory()->getActionList().push_back(new SlimePounce(getInventory()));
+		getInventory()->getActionList().push_back(new NewSlashAttack(getInventory()));
 	}
 };
 

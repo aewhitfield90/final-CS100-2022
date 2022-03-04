@@ -78,3 +78,16 @@ void MegaFlare::ExecuteAction()
 	// Sleep for 1 second
 	std::this_thread::sleep_for(std::chrono::seconds(1));
 }
+
+void NewSlashAttack::ExecuteAction()
+{
+	// Deal damage to Creature Target
+	int damage = DealDamageToTarget();
+
+	// Print that we dealt damage
+	cout << getOwnerCreature()->getName() << " deals a slashing attack with a sword! Dealing <" << damage << "> to " << getOwnerCreature()->getTarget()->getName();
+	cout << endl;
+
+	// Sleep for 1 second
+	std::this_thread::sleep_for(std::chrono::seconds(1));
+}
