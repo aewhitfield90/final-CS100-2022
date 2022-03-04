@@ -6,7 +6,7 @@ using namespace std;
 int main() {//tester main for classes
 	cout << "Welcome to Text RPG" << endl;//dafsfasdf
 	cout << "Creating Player 1" << endl;//dafsfasdf
-	Player player1("Tester");
+	Player player1("Tester", 100, 5);
 
 	player1.getPlayerStats();
 

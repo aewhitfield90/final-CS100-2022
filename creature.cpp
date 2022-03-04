@@ -1,87 +1,83 @@
-#include <string>
-using namespace std;
+#include "creature.h"
 
-class Creature {
-private:
-	string name;
-	int healthPoints;
-	int attackPoints;
-public:
-	void setName(string n) {
-		name = n;
-	}
-	void setHP(int i) {
-		healthPoints = i;
-	}
-	void setAP(int i) {
-		attackPoints = i;
-	}
-	string getName() {
-		return name;
-	}
-	int getHP() {
-		return healthPoints;
-	}
-	int getAP() {
-		return attackPoints;
-	}
-};
+/*-------- Creature Baseclass --------*/
 
-class Player : public Creature {
-private:
-	int experiencePoints = 0;
-	//Item *inventoryArray = new Item[5]; //item array of item objects size 5
-public:
-	Player(string n) {//first time character creation stats
-		setName(n);
-		setHP(100);
-		setAP(5);
-	}
-	int getXP() {
-		return experiencePoints;
-	}
-	void getPlayerStats() {
-		cout << "Character " << getName() << " stats:" << endl;
-		cout << "Health Points: " << getHP() << endl;
-		cout << "Attack Points: " << getAP() << endl;
-		cout << "Experience Points: " << getXP() << endl << endl;
-	}
-};
+// Taking damage for creatures
+void Creature::TakeDamage(int damageAmt) {
+	// Take damage
+	this->setHealth(this->getHealth() - damageAmt);
 
-class Monster : public Creature {
-private:
-	int loot = rand() % 100 + 1; //have to wait for loot class to be made
-	int getLoot() {
-		return loot; //place holder till loot class is finished
+	// Execute Creature's death function if health less than or equal 0
+	if (getHealth() <= 0) {
+		OnCreatureDeath();
 	}
-};
+}
 
-class Slime : public Monster {
-private:
-public:
-	Slime() {
-		setName("Slime");
-		setHP(25);
-		setAP(3);
-	}
-};
+// Creature baseclass destructor
+Creature::~Creature() {
+	delete inventory;
+}
 
-class Rat : public Monster {
-private:
-public:
-	Rat() {
-		setName("Rat");
-		setHP(15);
-		setAP(2);
-	}
-};
 
-class Skeleton : public Monster {
-private:
-public:
-	Skeleton() {
-		setName("Skeleton");
-		setHP(40);
-		setAP(5);
+/*-------- Player Character Subclass --------*/
+
+// Player Turn
+void Player::CreatureTurn() {
+	// Init get command var
+	int command;
+
+	// Ask what player will do
+	cout << "What will you do? Type # next to command..." << endl;
+
+	// Print Action List
+	vector<Action*> actionList = getInventory()->getActionList();
+
+	for (int i = 0; i < actionList.size(); i++)
+	{
+		cout << "\t" << "[" << i << "] " << actionList[i]->getName();
 	}
-};
+	cout << endl;
+
+	// Get Player Input
+	cin >> command;
+	cout << endl;
+
+	// Execute Player Action
+	if(command < actionList.size())
+		if (actionList[command])
+			actionList[command]->ExecuteAction();
+}
+
+
+void Player::getPlayerStats() {
+	cout << "Character " << getName() << " stats:" << endl;
+	cout << "Health Points: " << getHealth() << endl;
+	cout << "Attack Points: " << getAttack() << endl;
+	cout << "Experience Points: " << getXP() << endl << endl;
+}
+
+
+void Player::OnCreatureDeath()
+{
+	cout << endl;
+	cout << "~~~YOU DIED~~~" << endl;
+
+	// Do more code with ending the game...
+}
+
+
+
+/*-------- Enemy Base Character Subclass --------*/
+
+void Monster::OnCreatureDeath()
+{
+	// Do something on creature death...
+}
+
+void Monster::CreatureTurn() {
+	// Use rand() for doing a random action on Monster's turn, in range of their action list
+	int commandSelect = rand() % getInventory()->getActionList().size();
+
+	// Execute this action
+	getInventory()->getActionList()[commandSelect]->ExecuteAction();
+}
