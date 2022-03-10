@@ -31,6 +31,7 @@ void Player::CreatureTurn() {
 
 	// Print Action List
 	vector<Action*> actionList = getInventory()->getActionList();
+	vector<Item*> itemList = getInventory()->getItemList();
 
 	for (int i = 0; i < actionList.size(); i++)
 	{
@@ -43,10 +44,30 @@ void Player::CreatureTurn() {
 	cout << endl;
 
 	// Execute Player Action
-	if(command < actionList.size())
-		if (actionList[command])
+	if (command < actionList.size()) {
+		if (actionList[command]) {
+			if (actionList[command]->getName() == "Item") {
+				cout << "What item will you use? Type # next to command..." << endl;
+				for (int i = 0; i < itemList.size(); i++)
+				{
+					cout << "\t" << "[" << i << "] " << itemList[i]->getName();
+				}
+				cout << endl;
+				// Get Player Input
+				cin >> command;
+				cout << endl;
+				if (command < itemList.size())
+				{
+					if (itemList[command]) {
+						itemList[command]->ExecuteAction();
+					}
+				}
+			}
 			actionList[command]->ExecuteAction();
+		}
+	}
 }
+
 
 
 void Player::getPlayerStats() {
@@ -72,6 +93,8 @@ void Player::OnCreatureDeath()
 void Monster::OnCreatureDeath()
 {
 	// Do something on creature death...
+	getLoot();
+	this_thread::sleep_for(chrono::seconds(1));
 }
 
 void Monster::CreatureTurn() {
@@ -80,4 +103,21 @@ void Monster::CreatureTurn() {
 
 	// Execute this action
 	getInventory()->getActionList()[commandSelect]->ExecuteAction();
+}
+
+void Monster::getLoot(){
+	if (loot < 30) {
+		getTarget()->getInventory()->getItemList().push_back(new Potion(getInventory()));
+		cout << "You recieved a Potion from defeating " << getName();
+		cout << endl;
+	}
+	else if (loot < 70) {
+		getTarget()->getInventory()->getItemList().push_back(new Bomb(getInventory()));
+		cout << "You recieved a Bomb from defeating " << getName();
+		cout << endl;
+	}
+	else {
+		cout << "No items dropped from " << getName();
+		cout << endl;
+	}
 }

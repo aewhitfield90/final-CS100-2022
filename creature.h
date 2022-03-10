@@ -86,6 +86,9 @@ public:
 		// Add any unique actions
 		getInventory()->getActionList().push_back(new MegaFlare(getInventory()));
 		getInventory()->getActionList().push_back(new NewSlashAttack(getInventory()));
+		getInventory()->getActionList().push_back(new Heal(getInventory()));
+		getInventory()->getActionList().push_back(new Item(getInventory()));
+		//getInventory()->getItemList().push_back(new Potion(getInventory()));
 	}
 
 	int getXP() {return experiencePoints;}
@@ -106,7 +109,7 @@ private:
 	int loot = rand() % 100 + 1;		// have to wait for loot class to be made
 
 public:
-	int getLoot() {return loot; } //place holder till loot class is finished
+	void getLoot(); //place holder till loot class is finished
 
 	// When any Monster dies
 	virtual void OnCreatureDeath();
@@ -127,7 +130,6 @@ public:
 
 		// Add unique actions
 		getInventory()->getActionList().push_back(new SlimePounce(getInventory()));
-		getInventory()->getActionList().push_back(new NewSlashAttack(getInventory()));
 	}
 };
 
