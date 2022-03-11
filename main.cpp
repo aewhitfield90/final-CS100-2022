@@ -72,8 +72,6 @@ int main()
 	// Do battle...
 	CombatLoop(creatureTurnList, EnemyList);
 	
-	// Delete in the end
-	delete enmBook_001;
 	creatureTurnList.erase(creatureTurnList.begin() + 1);
 
 	creatureTurnList.push_back(enmRat_001);	// Add to turn list
@@ -97,9 +95,7 @@ int main()
 	// Do battle...
 	CombatLoop(creatureTurnList, EnemyList);
 
-	// Delete in the end
 
-	delete enmRat_001;
 	creatureTurnList.erase(creatureTurnList.begin() + 1);
 
 	creatureTurnList.push_back(enmSlime_001);	// Add to turn list
@@ -123,9 +119,7 @@ int main()
 	// Do battle...
 	CombatLoop(creatureTurnList, EnemyList);
 
-	// Delete in the end
 
-	delete enmSlime_001;
 	creatureTurnList.erase(creatureTurnList.begin() + 1);
 
 	creatureTurnList.push_back(enmImp_001);	// Add to turn list
@@ -149,9 +143,7 @@ int main()
 	// Do battle...
 	CombatLoop(creatureTurnList, EnemyList);
 
-	// Delete in the end
 
-	delete enmImp_001;
 	creatureTurnList.erase(creatureTurnList.begin() + 1);
 
 	creatureTurnList.push_back(enmSkeleton_001);	// Add to turn list
@@ -175,7 +167,10 @@ int main()
 	// Do battle...
 	CombatLoop(creatureTurnList, EnemyList);
 
-
+	delete enmBook_001;
+	delete enmRat_001;
+	delete enmSlime_001;
+	delete enmImp_001;
 	delete enmSkeleton_001;
 	creatureTurnList.clear();
 
