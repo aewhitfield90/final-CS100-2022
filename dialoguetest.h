@@ -20,7 +20,5 @@ TEST(Dialogue, DialoguePrints) {
 	string output = ss.str();
 
 	EXPECT_EQ(output, tmpString);
-
-	delete temp;
 }
 
