@@ -1,5 +1,5 @@
-#ifndef __DIALOGUE_HPP__
-#define __DIALOGUE_HPP__
+#ifndef DIALOGUE_H
+#define DIALOGUE_H
 #include <string>
 #include <iostream>
 #include <fstream>
@@ -7,10 +7,11 @@
 using namespace std;
 
 class Dialogue{
+
 private:
 	string dialogueFileName;
 public:
-	Dialogue(fileName);
+	Dialogue(string fileName);
 	string GetFileName();
 	void printDialogue(ostream& out) const;
 };
