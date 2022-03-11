@@ -69,12 +69,12 @@ void SlimePounce::ExecuteAction()
 void MegaFlare::ExecuteAction()
 {
 	// Deal damage to Creature Target
-	int damage = DealDamageToTarget();
+	int damage = static_cast<float>(getOwnerCreature()->getAttack()) * getPower();
 
 	// Print that we dealt damage
 	cout << getOwnerCreature()->getName() << " casts MEGA FLARE!! Dealing <" << damage << "> to " << getOwnerCreature()->getTarget()->getName();
 	cout << endl;
-
+	DealDamageToTarget();
 	// Sleep for 1 second
 	std::this_thread::sleep_for(std::chrono::seconds(1));
 }
@@ -88,6 +88,50 @@ void NewSlashAttack::ExecuteAction()
 	cout << getOwnerCreature()->getName() << " deals a slashing attack with a sword! Dealing <" << damage << "> to " << getOwnerCreature()->getTarget()->getName();
 	cout << endl;
 
+	// Sleep for 1 second
+	std::this_thread::sleep_for(std::chrono::seconds(1));
+}
+
+
+void Heal::ExecuteAction()
+{
+	// Deal damage to Creature Target
+	int heal = 5;
+	getOwnerCreature()->setHealth(getOwnerCreature()->getHealth() + heal);
+
+	// Print that we dealt damage
+	cout << "Healing <" << heal << "> HP. Your new health is " << getOwnerCreature()->getHealth();
+	cout << endl;
+
+	// Sleep for 1 second
+	std::this_thread::sleep_for(std::chrono::seconds(1));
+}
+
+void Potion::ExecuteAction() {
+
+	// Deal damage to Creature Target
+	int heal = 10;
+	getOwnerCreature()->setHealth(getOwnerCreature()->getHealth() + heal);
+
+	// Print that we dealt damage
+	cout << "Healing <" << heal << "> HP. Your new health is " << getOwnerCreature()->getHealth();
+	cout << endl;
+
+	// Sleep for 1 second
+	std::this_thread::sleep_for(std::chrono::seconds(1));
+}
+
+
+
+void Bomb::ExecuteAction()
+{
+	// Deal damage to Creature Target
+	int damage = static_cast<float>(getOwnerCreature()->getAttack()) * getPower();
+
+	// Print that we dealt damage
+	cout << getOwnerCreature()->getName() << " throws a Bomb dealing <" << damage << "> to " << getOwnerCreature()->getTarget()->getName();
+	cout << endl;
+	DealDamageToTarget();
 	// Sleep for 1 second
 	std::this_thread::sleep_for(std::chrono::seconds(1));
 }
