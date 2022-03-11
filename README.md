@@ -99,3 +99,7 @@ and to properly follow solid principles, and we're sure that this structure will
  Your choices will determine if the Hero defeats their enemy and stays alive
  Defeating the boss will complete the game
  Losing all Health Points will lose the game
+
+ How Text RPG was tested:
+ - Unit testing
+ - Valgrind
