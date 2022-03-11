@@ -51,7 +51,7 @@ void Attack::ExecuteAction() {
 	DealDamageToTarget();
 	// Print creature's health
 	displayHealth->showElement(getOwnerCreature()->getTarget());
-
+	delete displayHealth;
 	// Sleep for 1 second
 	std::this_thread::sleep_for(std::chrono::seconds(1));
 }
@@ -72,7 +72,7 @@ void SlimePounce::ExecuteAction()
 	DealDamageToTarget();
 	// Print creature's health
 	displayHealth->showElement(getOwnerCreature()->getTarget());
-
+	delete displayHealth;
 	// Sleep for 1 second
 	std::this_thread::sleep_for(std::chrono::seconds(1));
 }
@@ -94,7 +94,7 @@ void MegaFlare::ExecuteAction()
 
 	// Print creature's health
 	displayHealth->showElement(getOwnerCreature()->getTarget());
-
+	delete displayHealth;
 	// Sleep for 1 second
 	std::this_thread::sleep_for(std::chrono::seconds(1));
 }
@@ -113,7 +113,7 @@ void NewSlashAttack::ExecuteAction()
 	DealDamageToTarget();
 	// Print creature's health
 	displayHealth->showElement(getOwnerCreature()->getTarget());
-
+	delete displayHealth;
 	// Sleep for 1 second
 	std::this_thread::sleep_for(std::chrono::seconds(1));
 }
