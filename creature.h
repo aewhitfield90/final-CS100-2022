@@ -146,10 +146,30 @@ public:
 class Skeleton : public Monster {
 private:
 public:
-	Skeleton(string name = "Skeleton") {
+	Skeleton(string name = "Skeleton King Nigel") {
 		setName(name);
 		setHealth(40);
 		setAttack(5);
+	}
+};
+
+class Book : public Monster {
+private:
+public:
+	Book(string name = "Flying Book") {
+		setName(name);
+		setHealth(5);
+		setAttack(5);
+	}
+};
+
+class Imp : public Monster {
+private:
+public:
+	Imp(string name = "Imp") {
+		setName(name);
+		setHealth(20);
+		setAttack(4);
 	}
 };
 
