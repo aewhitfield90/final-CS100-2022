@@ -41,6 +41,8 @@ int main()
 	Imp* enmImp_001 = new Imp("Imp");
 	Skeleton* enmSkeleton_001 = new Skeleton("Skeleton King");	// Create Slime enemy
 
+	
+	
 	creatureTurnList.push_back(enmBook_001);	// Add to turn list
 	EnemyList.push_back(enmBook_001);			// Add to enemy list
 
@@ -72,7 +74,7 @@ int main()
 	
 	// Delete in the end
 	delete enmBook_001;
-	
+	creatureTurnList.erase(creatureTurnList.begin() + 1);
 
 	creatureTurnList.push_back(enmRat_001);	// Add to turn list
 	EnemyList.push_back(enmRat_001);
@@ -98,6 +100,7 @@ int main()
 	// Delete in the end
 
 	delete enmRat_001;
+	creatureTurnList.erase(creatureTurnList.begin() + 1);
 
 	creatureTurnList.push_back(enmSlime_001);	// Add to turn list
 	EnemyList.push_back(enmSlime_001);
@@ -123,6 +126,7 @@ int main()
 	// Delete in the end
 
 	delete enmSlime_001;
+	creatureTurnList.erase(creatureTurnList.begin() + 1);
 
 	creatureTurnList.push_back(enmImp_001);	// Add to turn list
 	EnemyList.push_back(enmImp_001);
@@ -148,6 +152,7 @@ int main()
 	// Delete in the end
 
 	delete enmImp_001;
+	creatureTurnList.erase(creatureTurnList.begin() + 1);
 
 	creatureTurnList.push_back(enmSkeleton_001);	// Add to turn list
 	EnemyList.push_back(enmSkeleton_001);
@@ -172,6 +177,7 @@ int main()
 
 
 	delete enmSkeleton_001;
+	creatureTurnList.erase(creatureTurnList.begin() + 1);
 
 	cout << endl;
 	outro.printDialogue(cout);
