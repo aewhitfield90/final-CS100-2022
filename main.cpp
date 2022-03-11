@@ -3,6 +3,7 @@
 #include <stdlib.h>
 
 #include "creature.h"
+#include "dialogue.h"
 
 using namespace std;
 
@@ -22,10 +23,16 @@ int main()
 	creatureTurnList.push_back(enmSlime_001);	// Add to turn list
 	EnemyList.push_back(enmSlime_001);			// Add to enemy list
 
+	Dialogue rm3("room3.txt");	
 
 	// Set each creature's target for scenario
 	enmSlime_001->setTarget(playerChar);
 	playerChar->setTarget(enmSlime_001);
+	
+	//Print scene description
+	cout << endl;
+	rm3.printDialogue(cout);
+	cout << endl;
 
 	// Do battle event
 	cout << "A slime stands in your way!!!" << endl;
@@ -37,15 +44,22 @@ int main()
 	
 	// Delete in the end
 	delete enmSlime_001;
-
+	
 
 	Slime* enmSlime_002= new Slime("Slime 2");	// Create Slime enemy
 	creatureTurnList.push_back(enmSlime_002);	// Add to turn list
 	EnemyList.push_back(enmSlime_002);
 
+	Dialogue rm4("room4.txt");
+
 	// Set each creature's target for scenario
 	enmSlime_002->setTarget(playerChar);
 	playerChar->setTarget(enmSlime_002);
+
+	//Print scene description
+	cout << endl;
+	rm4.printDialogue(cout);
+	cout << endl;
 
 	// Do battle event
 	cout << "A slime stands in your way!!!" << endl;
