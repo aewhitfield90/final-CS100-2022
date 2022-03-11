@@ -50,13 +50,41 @@ public:
 	Item(Inventory* owningInv) : Action(owningInv) {
 		setName("Item");
 	}
-
+	void addItemCount() {
+		itemCount += 1;
+	}
 	// Item baseclass will always subtract item count when used
 	// Be sure to also call this for all Items --> Item::ExecuteAction()
 	virtual void ExecuteAction() {
 		itemCount -= 1;
 	}
 };
+
+//subclass of Item Baseclass
+class Potion : public Item {
+private:
+public:
+	// Constructor
+	Potion(Inventory* owningInv) : Item(owningInv) {
+		setName("Potion");
+	}
+	// Execution Override (empty...)
+	virtual void ExecuteAction();
+};
+
+class Bomb : public Item {
+private:
+public:
+	// Constructor
+	Bomb(Inventory* owningInv) : Item(owningInv) {
+		setName("Bomb");
+		setPower(20);
+	}
+	// Execution Override (empty...)
+	virtual void ExecuteAction();
+};
+
+
 
 
 // Special Baseclass
@@ -119,6 +147,19 @@ public:
 	virtual void ExecuteAction();
 };
 
+class Heal : public Action {
+private:
+
+
+public:
+	// Constructor
+	Heal(Inventory* owningInv) : Action(owningInv) {
+		setName("Heal");
+	}
+
+	// Execution Override (in .cpp)
+	virtual void ExecuteAction();
+};
 
 //------------Enemy Specific Actions------------
 // Slime Pounce Action Subclass
@@ -136,5 +177,6 @@ public:
 	// Execution Override (in .cpp)
 	virtual void ExecuteAction();
 };
+
 
 #endif /* ACTION_H */

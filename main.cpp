@@ -36,8 +36,28 @@ int main()
 	CombatLoop(creatureTurnList, EnemyList);
 	
 	// Delete in the end
-	delete playerChar;
 	delete enmSlime_001;
+
+
+	Slime* enmSlime_002= new Slime("Slime 2");	// Create Slime enemy
+	creatureTurnList.push_back(enmSlime_002);	// Add to turn list
+	EnemyList.push_back(enmSlime_002);
+
+	// Set each creature's target for scenario
+	enmSlime_002->setTarget(playerChar);
+	playerChar->setTarget(enmSlime_002);
+
+	// Do battle event
+	cout << "A slime stands in your way!!!" << endl;
+	// Sleep for 1 second
+	std::this_thread::sleep_for(std::chrono::seconds(1));
+
+	// Do battle...
+	CombatLoop(creatureTurnList, EnemyList);
+
+	// Delete in the end
+	delete playerChar;
+	delete enmSlime_002;
 }
 
 void CombatLoop(vector<Creature*>& turnList, vector<Monster*>& enemyList) {
@@ -62,6 +82,5 @@ void CombatLoop(vector<Creature*>& turnList, vector<Monster*>& enemyList) {
 			if (enemy->getHealth() > 0) enemiesAlive = true;
 		}
 	}
-
 	cout << "VICTORY!!!" << endl;
 }
