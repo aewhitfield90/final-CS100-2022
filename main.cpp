@@ -95,12 +95,6 @@ int main()
 	// Do battle...
 	CombatLoop(creatureTurnList, EnemyList);
 
-	
-	//THE END
-	cout << endl;
-	outro.printDialogue(cout);
-	cout << endl;
-
 	// Delete in the end
 
 	delete enmRat_001;
@@ -125,12 +119,6 @@ int main()
 
 	// Do battle...
 	CombatLoop(creatureTurnList, EnemyList);
-
-
-	//THE END
-	cout << endl;
-	outro.printDialogue(cout);
-	cout << endl;
 
 	// Delete in the end
 
@@ -157,12 +145,6 @@ int main()
 	// Do battle...
 	CombatLoop(creatureTurnList, EnemyList);
 
-
-	//THE END
-	cout << endl;
-	outro.printDialogue(cout);
-	cout << endl;
-
 	// Delete in the end
 
 	delete enmImp_001;
@@ -188,13 +170,6 @@ int main()
 	// Do battle...
 	CombatLoop(creatureTurnList, EnemyList);
 
-
-	//THE END
-	cout << endl;
-	outro.printDialogue(cout);
-	cout << endl;
-
-	// Delete in the end
 
 	delete enmSkeleton_001;
 
