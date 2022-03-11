@@ -7,12 +7,14 @@ SET(CMAKE_CXX_STANDARD 11)
 ADD_SUBDIRECTORY(googletest)
 
 ADD_EXECUTABLE(test
-    test.cpp)
+    test.cpp
+    dialogue.cpp)
 
 ADD_EXECUTABLE(game
     main.cpp
     Actions/Action.cpp
-    creature.cpp)
+    creature.cpp
+    dialogue.cpp)
 
 TARGET_LINK_LIBRARIES(test gtest)
 TARGET_COMPILE_DEFINITIONS(test PRIVATE gtest_disable_pthreads=ON)
