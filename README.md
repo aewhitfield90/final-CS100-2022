@@ -31,7 +31,7 @@ Input will involve keyboard entries from the player. Output will move the Role P
  >     * How work will be divided between the team members
 
 ## Class Diagram (Updated)
-![UML](https://github.com/cs100/final-project-ajime038-awhit078-mritc003-nnguy414/blob/master/FinalGameProjectUML.png)
+![UML](https://github.com/cs100/final-project-ajime038-awhit078-mritc003-nnguy414/blob/0359c1792bc91721122733ba8ad8419aa2e381ef/Really%20Final%20Game%20Project%20UML.png)
 **The GameSystem class** simply handles which scene we are currently in which everything in the game can read from. This class also stores the main TextLog
 class which everything else in the game can write to as events occur.
 
