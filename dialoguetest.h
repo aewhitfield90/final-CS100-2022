@@ -1,6 +1,6 @@
 #pragma once
 #include "googletest/googletest/include/gtest/gtest.h"
-#include "dialogue.hpp"
+#include "dialogue.h"
 
 TEST(Dialogue, ConstructorWorks) {
 	Dialogue* temp = new Dialogue("test.txt");
