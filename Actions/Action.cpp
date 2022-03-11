@@ -39,12 +39,12 @@ int Action::DealDamageToTarget() {
 void Attack::ExecuteAction() {
 
 	// Deal damage to Creature Target
-	int damage = DealDamageToTarget();
+	int damage = static_cast<float>(getOwnerCreature()->getAttack()) * getPower();
 
 	// Print that we dealt damage
 	cout << getOwnerCreature()->getName() << " attacks!! Dealing <" << damage << "> to " << getOwnerCreature()->getTarget()->getName();
 	cout << endl;
-
+	DealDamageToTarget();
 	// Sleep for 1 second
 	std::this_thread::sleep_for(std::chrono::seconds(1));
 }
@@ -54,12 +54,12 @@ void Attack::ExecuteAction() {
 void SlimePounce::ExecuteAction()
 {
 	// Deal damage to Creature Target
-	int damage = DealDamageToTarget();
+	int damage = static_cast<float>(getOwnerCreature()->getAttack()) * getPower();
 
 	// Print that we dealt damage
 	cout << getOwnerCreature()->getName() << " throws itself, and pouncing!! Dealing <" << damage << "> to " << getOwnerCreature()->getTarget()->getName();
 	cout << endl;
-
+	DealDamageToTarget();
 	// Sleep for 1 second
 	std::this_thread::sleep_for(std::chrono::seconds(1));
 }
@@ -126,12 +126,12 @@ void Potion::ExecuteAction() {
 void Bomb::ExecuteAction()
 {
 	// Deal damage to Creature Target
-	int damage = static_cast<float>(getOwnerCreature()->getAttack()) * getPower();
+	int damage = 20;
 
 	// Print that we dealt damage
 	cout << getOwnerCreature()->getName() << " throws a Bomb dealing <" << damage << "> to " << getOwnerCreature()->getTarget()->getName();
 	cout << endl;
-	DealDamageToTarget();
+	getOwnerCreature()->getTarget()->TakeDamage(damage);
 	// Sleep for 1 second
 	std::this_thread::sleep_for(std::chrono::seconds(1));
 }
