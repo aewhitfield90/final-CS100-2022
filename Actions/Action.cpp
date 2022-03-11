@@ -1,4 +1,5 @@
 #include "Action.h"
+#include "../display.h"
 #include "../creature.h"
 
 
@@ -38,12 +39,18 @@ int Action::DealDamageToTarget() {
 // Attack Action Execution
 void Attack::ExecuteAction() {
 
+	//DisplayHealth object for displaying health
+	DisplayHealth* displayHealth = new DisplayHealth();
+
 	// Deal damage to Creature Target
 	int damage = DealDamageToTarget();
 
 	// Print that we dealt damage
 	cout << getOwnerCreature()->getName() << " attacks!! Dealing <" << damage << "> to " << getOwnerCreature()->getTarget()->getName();
 	cout << endl;
+
+	// Print creature's health
+	displayHealth->showElement(getOwnerCreature()->getTarget());
 
 	// Sleep for 1 second
 	std::this_thread::sleep_for(std::chrono::seconds(1));
@@ -53,12 +60,18 @@ void Attack::ExecuteAction() {
 // Slime Pounce Action Execution
 void SlimePounce::ExecuteAction()
 {
+	//DisplayHealth object for displaying health
+	DisplayHealth* displayHealth = new DisplayHealth();
+
 	// Deal damage to Creature Target
 	int damage = DealDamageToTarget();
 
 	// Print that we dealt damage
 	cout << getOwnerCreature()->getName() << " throws itself, and pouncing!! Dealing <" << damage << "> to " << getOwnerCreature()->getTarget()->getName();
 	cout << endl;
+
+	// Print creature's health
+	displayHealth->showElement(getOwnerCreature()->getTarget());
 
 	// Sleep for 1 second
 	std::this_thread::sleep_for(std::chrono::seconds(1));
@@ -68,6 +81,9 @@ void SlimePounce::ExecuteAction()
 // Mega Flare Action Execution
 void MegaFlare::ExecuteAction()
 {
+	//DisplayHealth object for displaying health
+	DisplayHealth* displayHealth = new DisplayHealth();
+
 	// Deal damage to Creature Target
 	int damage = static_cast<float>(getOwnerCreature()->getAttack()) * getPower();
 
@@ -75,18 +91,28 @@ void MegaFlare::ExecuteAction()
 	cout << getOwnerCreature()->getName() << " casts MEGA FLARE!! Dealing <" << damage << "> to " << getOwnerCreature()->getTarget()->getName();
 	cout << endl;
 	DealDamageToTarget();
+
+	// Print creature's health
+	displayHealth->showElement(getOwnerCreature()->getTarget());
+
 	// Sleep for 1 second
 	std::this_thread::sleep_for(std::chrono::seconds(1));
 }
 
 void NewSlashAttack::ExecuteAction()
 {
+	//DisplayHealth object for displaying health
+	DisplayHealth* displayHealth = new DisplayHealth();
+
 	// Deal damage to Creature Target
 	int damage = DealDamageToTarget();
 
 	// Print that we dealt damage
 	cout << getOwnerCreature()->getName() << " deals a slashing attack with a sword! Dealing <" << damage << "> to " << getOwnerCreature()->getTarget()->getName();
 	cout << endl;
+
+	// Print creature's health
+	displayHealth->showElement(getOwnerCreature()->getTarget());
 
 	// Sleep for 1 second
 	std::this_thread::sleep_for(std::chrono::seconds(1));
@@ -125,6 +151,9 @@ void Potion::ExecuteAction() {
 
 void Bomb::ExecuteAction()
 {
+	//DisplayHealth object for displaying health
+	DisplayHealth* displayHealth = new DisplayHealth();
+
 	// Deal damage to Creature Target
 	int damage = static_cast<float>(getOwnerCreature()->getAttack()) * getPower();
 
@@ -132,6 +161,10 @@ void Bomb::ExecuteAction()
 	cout << getOwnerCreature()->getName() << " throws a Bomb dealing <" << damage << "> to " << getOwnerCreature()->getTarget()->getName();
 	cout << endl;
 	DealDamageToTarget();
+
+	// Print creature's health
+	displayHealth->showElement(getOwnerCreature()->getTarget());
+
 	// Sleep for 1 second
 	std::this_thread::sleep_for(std::chrono::seconds(1));
 }
