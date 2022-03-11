@@ -60,6 +60,7 @@ and to properly follow solid principles, and we're sure that this structure will
  ## Testing
  - Unit testing
  - Valgrind
+ 
  ![UML](https://github.com/cs100/final-project-ajime038-awhit078-mritc003-nnguy414/blob/1b38d3abc2902a7dc76beb837f230c4dffcf1387/Valgrind_game.PNG)
  ![UML](https://github.com/cs100/final-project-ajime038-awhit078-mritc003-nnguy414/blob/1b38d3abc2902a7dc76beb837f230c4dffcf1387/Valgrind_tests.PNG)
 
