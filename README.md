@@ -62,17 +62,13 @@ and to properly follow solid principles, and we're sure that this structure will
  ![UML](https://github.com/cs100/final-project-ajime038-awhit078-mritc003-nnguy414/blob/fb4660f18568b5f19425e96618c2f444f0ad7e32/TextRPG5.png)
  ![UML](https://github.com/cs100/final-project-ajime038-awhit078-mritc003-nnguy414/blob/fb4660f18568b5f19425e96618c2f444f0ad7e32/TextRPG6.png)
  ## Installation/Usage
- Instructions for Running Text RPG
- Run the Text RPG game
- The Text RPG will prompt you to input a number for the Hero's choice
- Your choices will determine if the Hero defeats their enemy and stays alive
- Defeating the boss will complete the game
- Losing all Health Points will lose the game
+ - Instructions for Running Text RPG
+ - Run the Text RPG game
+ - The Text RPG will prompt you to input a number for the Hero's choice
+ - Your choices will determine if the Hero defeats their enemy and stays alive
+ - Defeating the boss will complete the game
+ - Losing all Health Points will lose the game
  ## Testing
  - Unit testing
  - Valgrind
- 
-
-
- How Text RPG was tested:
 
