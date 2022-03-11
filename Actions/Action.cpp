@@ -43,14 +43,16 @@ void Attack::ExecuteAction() {
 	DisplayHealth* displayHealth = new DisplayHealth();
 
 	// Deal damage to Creature Target
-	int damage = DealDamageToTarget();
+	int damage = static_cast<float>(getOwnerCreature()->getAttack()) * getPower();
 
 	// Print that we dealt damage
 	cout << getOwnerCreature()->getName() << " attacks!! Dealing <" << damage << "> to " << getOwnerCreature()->getTarget()->getName();
 	cout << endl;
+	DealDamageToTarget();
 
 	// Print creature's health
 	displayHealth->showElement(getOwnerCreature()->getTarget());
+
 
 	// Sleep for 1 second
 	std::this_thread::sleep_for(std::chrono::seconds(1));
@@ -64,11 +66,12 @@ void SlimePounce::ExecuteAction()
 	DisplayHealth* displayHealth = new DisplayHealth();
 
 	// Deal damage to Creature Target
-	int damage = DealDamageToTarget();
+	int damage = static_cast<float>(getOwnerCreature()->getAttack()) * getPower();
 
 	// Print that we dealt damage
 	cout << getOwnerCreature()->getName() << " throws itself, and pouncing!! Dealing <" << damage << "> to " << getOwnerCreature()->getTarget()->getName();
 	cout << endl;
+	DealDamageToTarget();
 
 	// Print creature's health
 	displayHealth->showElement(getOwnerCreature()->getTarget());
@@ -155,11 +158,12 @@ void Bomb::ExecuteAction()
 	DisplayHealth* displayHealth = new DisplayHealth();
 
 	// Deal damage to Creature Target
-	int damage = static_cast<float>(getOwnerCreature()->getAttack()) * getPower();
+	int damage = 20;
 
 	// Print that we dealt damage
 	cout << getOwnerCreature()->getName() << " throws a Bomb dealing <" << damage << "> to " << getOwnerCreature()->getTarget()->getName();
 	cout << endl;
+	getOwnerCreature()->getTarget()->TakeDamage(damage);
 	DealDamageToTarget();
 
 	// Print creature's health
