@@ -1,0 +1,1 @@
+/opt/rh/devtoolset-6/root/usr/bin/c++    -rdynamic CMakeFiles/game.dir/main.cpp.o CMakeFiles/game.dir/Actions/Action.cpp.o CMakeFiles/game.dir/creature.cpp.o CMakeFiles/game.dir/dialogue.cpp.o CMakeFiles/game.dir/display.cpp.o  -o game 

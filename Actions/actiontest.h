@@ -1,39 +1,48 @@
 #pragma once
-#include "googletest/googletest/include/gtest/gtest.h"
-#include "Actions/Action.h"
+#include "../googletest/googletest/include/gtest/gtest.h"
+#include "Action.h"
+#include "../Inventory.h"
 
 TEST(ActionTest, CreateActionPotion) {
-	Action* a1 = new Potion(nullptr);
+	Inventory* inv = new Inventory();
+	Action* a1 = new Potion(inv);
 
 	EXPECT_TRUE(a1->getName() == "Potion");
 	EXPECT_TRUE(a1->getPower() == 0.f);
-
+	
+	delete inv;
 	delete a1;
 }
 
 TEST(ActionTest, CreateActionAttack) {
-	Action* a1 = new Attack(nullptr);
+	Inventory* inv = new Inventory();
+	Action* a1 = new Attack(inv);
 
 	EXPECT_TRUE(a1->getName() == "Attack");
 	EXPECT_TRUE(a1->getPower() == 1.f);
 
+	delete inv;
 	delete a1;
 }
 
 TEST(ActionTest, CreateActionMegaFlare) {
-	Action* a1 = new MegaFlare(nullptr);
+	Inventory* inv = new Inventory();
+	Action* a1 = new MegaFlare(inv);
 
 	EXPECT_TRUE(a1->getName() == "Mega Flare");
 	EXPECT_TRUE(a1->getPower() == 999.f);
-
+	
+	delete inv;
 	delete a1;
 }
 
-TEST(ActionTest, CreateActionHeal) {
-	Action* a1 = new Heal(nullptr);
+TEST(ActionTest, CreateActionHeal) {	
+	Inventory* inv = new Inventory();
+	Action* a1 = new Heal(inv);
 
 	EXPECT_TRUE(a1->getName() == "Heal");
 	EXPECT_TRUE(a1->getPower() == 0.f);
-
+	
+	delete inv;
 	delete a1;
 }
