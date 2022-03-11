@@ -178,6 +178,8 @@ int main()
 	cout << endl;
 	PressToContinue(pTC);
 
+	delete playerChar;
+
 	//book rats slime imp skeleton
 }
 
