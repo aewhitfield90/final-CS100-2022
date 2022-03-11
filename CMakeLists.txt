@@ -8,7 +8,9 @@ ADD_SUBDIRECTORY(googletest)
 
 ADD_EXECUTABLE(test
     test.cpp
-    dialogue.cpp)
+    dialogue.cpp
+    creature.cpp
+    Actions/Action.cpp)
 
 ADD_EXECUTABLE(game
     main.cpp
