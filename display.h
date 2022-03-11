@@ -2,25 +2,30 @@
 #define DISPLAY_H
 
 #include <iostream>
+#include "creature.h"
 
 /* base class */
 class Display {
-	virtual void showElement() = 0;
+public:
+	virtual void showElement(Creature* creature) = 0;
 };
 
 /* subclass */
 class DisplayHealth : public Display {
-	virtual void showElement(Creature*);
+public:
+	void showElement(Creature* creature);
 };
 
 /* subclass */
 class DisplayPlayerHealth : public Display {
-	virtual void showElement(Player*);
+public:
+	virtual void showElement(Player* player);
 };
 
 /* subclass */
 class DisplayMonsterHealth : public Display {
-	virtual void showElement(Monster*);
+public:
+	virtual void showElement(Monster* monster);
 };
 
 #endif /* DISPLAY_H */

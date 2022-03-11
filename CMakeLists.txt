@@ -16,7 +16,8 @@ ADD_EXECUTABLE(game
     main.cpp
     Actions/Action.cpp
     creature.cpp
-    dialogue.cpp)
+    dialogue.cpp
+    display.cpp)
 
 TARGET_LINK_LIBRARIES(test gtest)
 TARGET_COMPILE_DEFINITIONS(test PRIVATE gtest_disable_pthreads=ON)
