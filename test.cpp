@@ -1,5 +1,8 @@
 #include "dialoguetest.h"
 #include "test.h"
+#include "inventorytest.h"
+#include "Actions/actiontest.h"
+#include "creaturetest.h"
 
 
 int main(int argc, char** argv) {
