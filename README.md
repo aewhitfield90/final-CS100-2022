@@ -93,3 +93,9 @@ and to properly follow solid principles, and we're sure that this structure will
  ## Testing
  > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
  
+ Instructions for Running Text RPG
+ Run the Text RPG game
+ The Text RPG will prompt you to input a number for the Hero's choice
+ Your choices will determine if the Hero defeats their enemy and stays alive
+ Defeating the boss will complete the game
+ Losing all Health Points will lose the game
