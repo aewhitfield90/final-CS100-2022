@@ -1,4 +1,4 @@
-#include "dialogue.h"
+#include "dialogue.hpp"
 
 Dialogue::Dialogue(string fileName)
 {
