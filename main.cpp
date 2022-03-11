@@ -177,7 +177,7 @@ int main()
 
 
 	delete enmSkeleton_001;
-	creatureTurnList.erase(creatureTurnList.begin() + 1);
+	creatureTurnList.clear();
 
 	cout << endl;
 	outro.printDialogue(cout);
