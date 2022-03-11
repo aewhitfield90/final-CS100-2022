@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 #include "creature.h"
-#include "dialogue.hpp"
+#include "dialogue.h"
 
 using namespace std;
 
