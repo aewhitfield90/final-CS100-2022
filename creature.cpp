@@ -45,6 +45,7 @@ void Player::CreatureTurn() {
 
 	// Execute Player Action
 	if (command < actionList.size()) {
+		bool itemUsed = false;
 		if (actionList[command]) {
 			if (actionList[command]->getName() == "Item") {
 				cout << "What item will you use? Type # next to command..." << endl;
@@ -60,11 +61,14 @@ void Player::CreatureTurn() {
 				{
 					if (itemList[command]) {
 						itemList[command]->ExecuteAction();
+						itemUsed = true;
 					}
 				}
 			}
+			if (!itemUsed)
 			actionList[command]->ExecuteAction();
 		}
+		itemUsed = false;
 	}
 }
 
@@ -107,12 +111,12 @@ void Monster::CreatureTurn() {
 
 void Monster::getLoot(){
 	if (loot < 30) {
-		getTarget()->getInventory()->getItemList().push_back(new Potion(getInventory()));
+		getTarget()->getInventory()->getItemList().push_back(new Potion(getTarget()->getInventory()));
 		cout << "You recieved a Potion from defeating " << getName();
 		cout << endl;
 	}
 	else if (loot < 70) {
-		getTarget()->getInventory()->getItemList().push_back(new Bomb(getInventory()));
+		getTarget()->getInventory()->getItemList().push_back(new Bomb(getTarget()->getInventory()));
 		cout << "You recieved a Bomb from defeating " << getName();
 		cout << endl;
 	}

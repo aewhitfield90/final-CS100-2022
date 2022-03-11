@@ -43,12 +43,12 @@ void Attack::ExecuteAction() {
 	DisplayHealth* displayHealth = new DisplayHealth();
 
 	// Deal damage to Creature Target
-	int damage = DealDamageToTarget();
+	int damage = static_cast<float>(getOwnerCreature()->getAttack()) * getPower();
 
 	// Print that we dealt damage
 	cout << getOwnerCreature()->getName() << " attacks!! Dealing <" << damage << "> to " << getOwnerCreature()->getTarget()->getName();
 	cout << endl;
-
+	DealDamageToTarget();
 	// Print creature's health
 	displayHealth->showElement(getOwnerCreature()->getTarget());
 
@@ -64,12 +64,12 @@ void SlimePounce::ExecuteAction()
 	DisplayHealth* displayHealth = new DisplayHealth();
 
 	// Deal damage to Creature Target
-	int damage = DealDamageToTarget();
+	int damage = static_cast<float>(getOwnerCreature()->getAttack()) * getPower();
 
 	// Print that we dealt damage
 	cout << getOwnerCreature()->getName() << " throws itself, and pouncing!! Dealing <" << damage << "> to " << getOwnerCreature()->getTarget()->getName();
 	cout << endl;
-
+	DealDamageToTarget();
 	// Print creature's health
 	displayHealth->showElement(getOwnerCreature()->getTarget());
 
@@ -105,12 +105,12 @@ void NewSlashAttack::ExecuteAction()
 	DisplayHealth* displayHealth = new DisplayHealth();
 
 	// Deal damage to Creature Target
-	int damage = DealDamageToTarget();
+	int damage = static_cast<float>(getOwnerCreature()->getAttack()) * getPower();
 
 	// Print that we dealt damage
 	cout << getOwnerCreature()->getName() << " deals a slashing attack with a sword! Dealing <" << damage << "> to " << getOwnerCreature()->getTarget()->getName();
 	cout << endl;
-
+	DealDamageToTarget();
 	// Print creature's health
 	displayHealth->showElement(getOwnerCreature()->getTarget());
 

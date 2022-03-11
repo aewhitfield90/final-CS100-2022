@@ -35,9 +35,14 @@ int main()
 	Player* playerChar = new Player(playerName, 100, 5);		// Create Player
 	creatureTurnList.push_back(playerChar);	// Add to turn list
 
-	Slime* enmSlime_001 = new Slime("Slime 1");	// Create Slime enemy
-	creatureTurnList.push_back(enmSlime_001);	// Add to turn list
-	EnemyList.push_back(enmSlime_001);			// Add to enemy list
+	Book* enmBook_001 = new Book("Book Mimic");
+	Rat* enmRat_001 = new Rat("Stinky Rat");
+	Slime* enmSlime_001 = new Slime("Slime");
+	Imp* enmImp_001 = new Imp("Imp");
+	Skeleton* enmSkeleton_001 = new Skeleton("Skeleton King");	// Create Slime enemy
+
+	creatureTurnList.push_back(enmBook_001);	// Add to turn list
+	EnemyList.push_back(enmBook_001);			// Add to enemy list
 
 		//Dialogue Init vars
 		Dialogue rm1("room1.txt");
@@ -48,17 +53,17 @@ int main()
 		Dialogue outro("outro.txt");	
 
 	// Set each creature's target for scenario
-	enmSlime_001->setTarget(playerChar);
-	playerChar->setTarget(enmSlime_001);
+	enmBook_001->setTarget(playerChar);
+	playerChar->setTarget(enmBook_001);
 	
 	//Print scene description
 	cout << endl;
-	rm3.printDialogue(cout);
+	rm1.printDialogue(cout);
 	cout << endl;
 	PressToContinue(pTC);
 	
 	// Do battle event
-	cout << "A slime stands in your way!!!" << endl;
+	cout << "A floating book flaps furiously before you!!!" << endl;
 	// Sleep for 1 second
 	std::this_thread::sleep_for(std::chrono::seconds(1));
 
@@ -66,25 +71,24 @@ int main()
 	CombatLoop(creatureTurnList, EnemyList);
 	
 	// Delete in the end
-	delete enmSlime_001;
+	delete enmBook_001;
 	
 
-	Slime* enmSlime_002= new Slime("Slime 2");	// Create Slime enemy
-	creatureTurnList.push_back(enmSlime_002);	// Add to turn list
-	EnemyList.push_back(enmSlime_002);
+	creatureTurnList.push_back(enmRat_001);	// Add to turn list
+	EnemyList.push_back(enmRat_001);
 
 	// Set each creature's target for scenario
-	enmSlime_002->setTarget(playerChar);
-	playerChar->setTarget(enmSlime_002);
+	enmRat_001->setTarget(playerChar);
+	playerChar->setTarget(enmRat_001);
 
 	//Print scene description
 	cout << endl;
-	rm4.printDialogue(cout);
+	rm2.printDialogue(cout);
 	cout << endl;
 	PressToContinue(pTC);
 
 	// Do battle event
-	cout << "A slime stands in your way!!!" << endl;
+	cout << "A large smelly rat skitters before you!!!" << endl;
 	// Sleep for 1 second
 	std::this_thread::sleep_for(std::chrono::seconds(1));
 
@@ -98,8 +102,108 @@ int main()
 	cout << endl;
 
 	// Delete in the end
-	delete playerChar;
-	delete enmSlime_002;
+
+	delete enmRat_001;
+
+	creatureTurnList.push_back(enmSlime_001);	// Add to turn list
+	EnemyList.push_back(enmSlime_001);
+
+	// Set each creature's target for scenario
+	enmSlime_001->setTarget(playerChar);
+	playerChar->setTarget(enmSlime_001);
+
+	//Print scene description
+	cout << endl;
+	rm3.printDialogue(cout);
+	cout << endl;
+	PressToContinue(pTC);
+
+	// Do battle event
+	cout << "A slime wiggles in your way!!!" << endl;
+	// Sleep for 1 second
+	std::this_thread::sleep_for(std::chrono::seconds(1));
+
+	// Do battle...
+	CombatLoop(creatureTurnList, EnemyList);
+
+
+	//THE END
+	cout << endl;
+	outro.printDialogue(cout);
+	cout << endl;
+
+	// Delete in the end
+
+	delete enmSlime_001;
+
+	creatureTurnList.push_back(enmImp_001);	// Add to turn list
+	EnemyList.push_back(enmImp_001);
+
+	// Set each creature's target for scenario
+	enmImp_001->setTarget(playerChar);
+	playerChar->setTarget(enmImp_001);
+
+	//Print scene description
+	cout << endl;
+	rm4.printDialogue(cout);
+	cout << endl;
+	PressToContinue(pTC);
+
+	// Do battle event
+	cout << "A grinning imp fidgets before you!!!" << endl;
+	// Sleep for 1 second
+	std::this_thread::sleep_for(std::chrono::seconds(1));
+
+	// Do battle...
+	CombatLoop(creatureTurnList, EnemyList);
+
+
+	//THE END
+	cout << endl;
+	outro.printDialogue(cout);
+	cout << endl;
+
+	// Delete in the end
+
+	delete enmImp_001;
+
+	creatureTurnList.push_back(enmSkeleton_001);	// Add to turn list
+	EnemyList.push_back(enmSkeleton_001);
+
+	// Set each creature's target for scenario
+	enmSkeleton_001->setTarget(playerChar);
+	playerChar->setTarget(enmSkeleton_001);
+
+	//Print scene description
+	cout << endl;
+	rm5.printDialogue(cout);
+	cout << endl;
+	PressToContinue(pTC);
+
+	// Do battle event
+	cout << "The Skeleton stands foreboding before you..." << endl;
+	// Sleep for 1 second
+	std::this_thread::sleep_for(std::chrono::seconds(1));
+
+	// Do battle...
+	CombatLoop(creatureTurnList, EnemyList);
+
+
+	//THE END
+	cout << endl;
+	outro.printDialogue(cout);
+	cout << endl;
+
+	// Delete in the end
+
+	delete enmSkeleton_001;
+
+	cout << endl;
+	outro.printDialogue(cout);
+	cout << endl;
+	PressToContinue(pTC);
+
+	//book rats slime imp skeleton
 }
 
 void CombatLoop(vector<Creature*>& turnList, vector<Monster*>& enemyList) {
